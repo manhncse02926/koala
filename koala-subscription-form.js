@@ -2,10 +2,12 @@
 
 function ResourceLoader() {}
 
-function SPForm(t) {
+function KLForm(t) {
     var e = this;
-    window.SPFormRegistry = window.SPFormRegistry || {}, e.id = t, 
+    window.KLFormRegistry = window.KLFormRegistry || {}, 
+    e.id = t, 
     e.formSelector = "#kl-form-" + e.id, 
+    console.log('e: ', e.formSelector);
     e.$form = jQ(e.formSelector), 
     e.$formMessage = jQ(e.formSelector + " .kl-message"), 
     e.$formOuter = jQ(e.formSelector).parent(".kl-form-outer").length ? jQ(e.formSelector).parent(".kl-form-outer") : jQ(e.formSelector).parent(".form-outer"), 
@@ -57,13 +59,14 @@ function KLHistory(t) {
             e.push(ResourceLoader.loadScript("//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/9.2.4/js/intlTelInput.min.js")), 
             e.push(ResourceLoader.loadScript("//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/9.2.4/js/utils.js"))),
             e.push(ResourceLoader.loadScript("//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.6/mobile-detect.min.js")), 
+            e.push(ResourceLoader.loadScript("//manhncse02926.github.io/koala/form.css")),
             Promise.all(e).then(function () {
                 t()
             }, function (t) {
                 console.error("Necessary scripts have not been loaded:", t)
             })
         }).then(function () {
-            for (var t = 0, e = i.length; t < e; t++) new SPForm(i[t]).run()
+            for (var t = 0, e = i.length; t < e; t++) new KLForm(i[t]).run()
         })
     }
 
@@ -80,11 +83,11 @@ function KLHistory(t) {
         return o
     }
     var s = "";
-    t.spFormBootstrap = function () {
+    t.KLFormBootstrap = function () {
         "undefined" != typeof Promise && -1 !== Promise.toString().indexOf("[native code]") ? e(o) : ResourceLoader.loadPromisePolyfill(function () {
             e(o)
         })
-    }, t.addEventListener("load", t.spFormBootstrap, !1)
+    }, t.addEventListener("load", t.KLFormBootstrap, !1)
 }(window), 
 ResourceLoader.loadScript = function (t, e, o) {
     return new Promise(function (r, s) {
@@ -127,7 +130,7 @@ var _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator 
 } : function (t) {
     return t && "function" == typeof Symbol && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t
 };
-SPForm.prototype.init = function () {
+KLForm.prototype.init = function () {
     var t = this;
     return t.$closeButton.on("click", function (e) {
             t.close(!0)
@@ -164,26 +167,26 @@ SPForm.prototype.init = function () {
         t.$formOuter.removeClass("kl-force-hide"), t.$formOuter.addClass("kl-show")
     }, 200)), "undefined" != typeof sbjs && "undefined" !== t.showOptions.utmEnable && !0 === t.showOptions.utmEnable && sbjs.init(), t
 }, 
-SPForm.prototype.run = function () {
+KLForm.prototype.run = function () {
     this.show()
 }, 
-SPForm.prototype.hideAllTips = function () {
+KLForm.prototype.hideAllTips = function () {
     var t = this;
     for (var e in t.inputs) t.inputs.hasOwnProperty(e) && t.inputs[e].hasOwnProperty("hideTip") && t.inputs[e].hideTip()
 }, 
-SPForm.prototype.disableInputs = function () {
+KLForm.prototype.disableInputs = function () {
     var t = this;
     jQ(t.inputsSelector).prop("disabled", !0), t.$submitButton.prop("disabled", !0)
 }, 
-SPForm.prototype.enableInputs = function () {
+KLForm.prototype.enableInputs = function () {
     var t = this;
     jQ(t.inputsSelector).prop("disabled", !1), t.$submitButton.prop("disabled", !1)
 }, 
-SPForm.prototype.close = function (t) {
+KLForm.prototype.close = function (t) {
     var e = this;
     "embed" !== e.formType && (e.$formOuter.addClass("kl-hide"), t && !e.history.getSubmits().length && e.history.addReject((new Date).getTime()), function () {
         var t = document.querySelector(".kl-form-outer"),
-            o = new CustomEvent("spFormCloseEvent", {
+            o = new CustomEvent("KLFormCloseEvent", {
                 detail: {
                     formId: e.id
                 },
@@ -192,7 +195,7 @@ SPForm.prototype.close = function (t) {
         t.dispatchEvent(o)
     }())
 }, 
-SPForm.prototype.show = function () {
+KLForm.prototype.show = function () {
     function t(t) {
         t = t || .2, t *= 1e3, setTimeout(function () {
             o.$formOuter.addClass("kl-showing"), setTimeout(function () {
@@ -205,7 +208,7 @@ SPForm.prototype.show = function () {
 
     function e() {
         var t = document.querySelector(".kl-form-outer"),
-            e = new CustomEvent("spFormShowEvent", {
+            e = new CustomEvent("KLFormShowEvent", {
                 detail: {
                     formId: o.id
                 },
@@ -263,7 +266,7 @@ SPForm.prototype.show = function () {
         o.history.addLastShow()
     }
 }, 
-SPForm.prototype.validateAll = function () {
+KLForm.prototype.validateAll = function () {
     var t = this;
     t.valid = !0;
     for (var e in t.inputs)
@@ -274,18 +277,18 @@ SPForm.prototype.validateAll = function () {
             t.valid = t.valid && r
         } return t
 }, 
-SPForm.prototype.validate = function (t) {
+KLForm.prototype.validate = function (t) {
     if (!!jQ.trim(t.val()) && t.intlTelInput("isValidNumber")) {
         return true;
     }
     t.showTip()
     return false;
 },
- SPForm.prototype.cbSubmit = function (t) {
+ KLForm.prototype.cbSubmit = function (t) {
     var e = this;
     t.hasOwnProperty("html") && t.hasOwnProperty("status") && (e.$form.find(".kl-element-container").hide(), "success" === t.status ? (e.$formMessage.addClass("kl-message-success"), e.sent = !0, e.history.addSubmit(), e.$formMessage.html(t.html), e.enableInputs()) : "verify" === t.status ? (e.sent = !0, e.history.addSubmit(), e.enableInputs(),  e.close(), window.location.href = "//" + e.showOptions.maDomain + "/forms/recaptcha?hash=" + t.form_hash) : (e.$formMessage.addClass("kl-message-error"), e.$formMessage.html(t.html), e.enableInputs())), e.$submitButton.removeClass("btn-loading"), e.removeInstanceFromRegistry()
 }, 
-SPForm.prototype.submit = function () {
+KLForm.prototype.submit = function () {
     var t = this;
     if (!t.sent && (t.validateAll(), t.valid)) {
         if ("popup" === t.formType && t.history.getSubmits().length > 1) return console.warn("Form has been submitted twice already. Enough!"), t.close(), !1;
@@ -316,7 +319,7 @@ SPForm.prototype.submit = function () {
             }(),
             function () {
                 var e = document.querySelector(".kl-form-outer"),
-                    o = new CustomEvent("spFormSubmitEvent", {
+                    o = new CustomEvent("KLFormSubmitEvent", {
                         detail: {
                             formId: t.id
                         },
@@ -326,16 +329,16 @@ SPForm.prototype.submit = function () {
             }()
     }
 }, 
-SPForm.prototype.makeCallbackName = function (t) {
-    return "SPFormRegistry['" + this.formHash + "']." + t
+KLForm.prototype.makeCallbackName = function (t) {
+    return "KLFormRegistry['" + this.formHash + "']." + t
 }, 
-SPForm.prototype.putInstanceToRegistry = function () {
+KLForm.prototype.putInstanceToRegistry = function () {
     var t = this;
-    window.SPFormRegistry[t.formHash] = t
+    window.KLFormRegistry[t.formHash] = t
 }, 
-SPForm.prototype.removeInstanceFromRegistry = function () {
+KLForm.prototype.removeInstanceFromRegistry = function () {
     var t = this;
-    void 0 !== window.SPFormRegistry[t.formHash] && delete window.SPFormRegistry[t.formHash]
+    void 0 !== window.KLFormRegistry[t.formHash] && delete window.KLFormRegistry[t.formHash]
 }, 
 KLHistory.prototype.raise = function () {
     var t = this;
