@@ -55,11 +55,12 @@ function KLHistory(t) {
 
         new Promise(function (t, r) {
             console.log("t: ", t);
-            o.length > 0 && (e.push(ResourceLoader.loadCss("//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/9.2.4/css/intlTelInput.css")), 
+            o.length > 0 && (
+            // e.push(ResourceLoader.loadCss("//manhncse02926.github.io/koala/form.css")),
+            e.push(ResourceLoader.loadCss("//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/9.2.4/css/intlTelInput.css")), 
             e.push(ResourceLoader.loadScript("//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/9.2.4/js/intlTelInput.min.js")), 
             e.push(ResourceLoader.loadScript("//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/9.2.4/js/utils.js"))),
             e.push(ResourceLoader.loadScript("//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.6/mobile-detect.min.js")), 
-            e.push(ResourceLoader.loadScript("//manhncse02926.github.io/koala/form.css")),
             Promise.all(e).then(function () {
                 t()
             }, function (t) {

@@ -1,13 +1,9 @@
 
-.kl-force-hide {
-    display: none;
-}
-
 .kl-form[kl-id="172765"] {
     display: block;
     background: #ffffff;
     padding: 15px;
-    width: 450px;
+    width: 300px;
     max-width: 100%;
     border-radius: 8px;
     -moz-border-radius: 8px;
@@ -43,7 +39,7 @@
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
-    height: 35px;
+    height: 40px;
     width: 100%;
 }
 
@@ -64,14 +60,16 @@
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
-    background-color: #0089bf;
+    background-color: #8ea1ff;
     color: #ffffff;
-    width: auto;
+    width: 100%;
+    min-height: 40px;
     font-weight: bold;
 }
 
 .kl-form[kl-id="172765"] .kl-button-container {
-    text-align: left;
+    text-align: center;
+
 }
 .kl-form img {
     border: 0
@@ -164,26 +162,7 @@
     display: block
 }
 
-.kl-form {
-    display: block;
-    margin: 0 auto;
-    padding: 15px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: transparent;
-    border-radius: 8px;
-    width: 400px;
-    max-width: 100%;
-    background: 0 0;
-    color: #333;
-    font-family: Arial, "Helvetica Neue", sans-serif;
-    line-height: 1.4
-}
 
-.kl-form,
-.kl-form * {
-    box-sizing: border-box
-}
 .kl-form .kl-field {
     padding: 8px;
     position: relative;
@@ -531,7 +510,7 @@
 
 @media (min-width:480px) {
     .kl-field-horizontal .kl-field.kl-button-container {
-        display: block
+        display: block;
     }
 
     .kl-field-horizontal .kl-field {
