@@ -123,7 +123,7 @@ function KLHistory(t) {
 
         new Promise(function (t, r) {
             o.length > 0 && (
-                    // e.push(ResourceLoader.loadCss("//manhncse02926.github.io/koala/form.css")),
+                    e.push(ResourceLoader.loadCss("//manhncse02926.github.io/koala/form.css")),
                     e.push(ResourceLoader.loadCss("//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/9.2.4/css/intlTelInput.css")),
                     e.push(ResourceLoader.loadScript("//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/9.2.4/js/intlTelInput.min.js")),
                     e.push(ResourceLoader.loadScript("//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/9.2.4/js/utils.js"))),
