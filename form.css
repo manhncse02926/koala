@@ -61,7 +61,7 @@
     border-color: #cccccc;
     border-style: solid;
     border-width: 1px;
-    font-size: 15px;
+    font-size: 14px;
     padding-left: 8.75px;
     padding-right: 8.75px;
     border-radius: 4px;
@@ -661,6 +661,9 @@
 .kl-form-horizontal .kl-field.kl-field__warning::before {
     right: -5px;
     bottom: 14px
+}
+.kl-popup-outer {	
+    background: rgba(0, 0, 0, 0.5);	
 }
 
 .kl-form-fixed,

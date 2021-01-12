@@ -20,8 +20,7 @@ function KLForm(t) {
         e.$closeButton = jQ(e.formSelector + " .kl-btn-close," + e.formSelector + " .kl-btn-thanks"),
         e.formHash = e.$form.attr("kl-hash"),
         e.activeType = 'telegram',
-        e.formType = e.$form.hasClass("kl-form-popup") ? "popup" : "embed",
-        e.formType = e.$form.hasClass("kl-form-fixed") ? "fixed" : e.formType,
+        e.formType = document.querySelectorAll("script[form-type]").length > 0 ? document.querySelectorAll("script[form-type]")[0].getAttribute('form-type') : "fixed";
         e.inputs = {}, e.inputsSelector = e.formSelector + " .kl-element-container :input",
         e.language = e.$form.attr("kl-lang"),
         e.preparedData = {},
@@ -58,13 +57,19 @@ function KLHistory(t) {
         var formType = document.querySelectorAll("script[form-type]");
 
         "function" != typeof NodeList.prototype.forEach && (NodeList.prototype.forEach = Array.prototype.forEach), formType.forEach(function (d) {
-            var c = d.getAttribute("form-type");
-            document.body.insertAdjacentHTML('beforeend', renderForm(c));
+            var c = d.getAttribute("form-type"),
+                s = d.getAttribute("selector"),
+                p = d.getAttribute("position");                
+           s? document.getElementById(s).insertAdjacentHTML('afterbegin',renderForm(c, p) ): document.body.insertAdjacentHTML('beforeend', renderForm(c, p));
         })
     }
 
-    function renderForm(type) {
-        let form = `<div class="kl-form-outer kl-fixed-outer kl-force-hide">
+    function renderForm(type, position) {
+        let p = type === 'fixed'?`kl-form-fixed__${position}`: '',
+            o = type === 'float'?"%22%2C%22condition%22%3A%22onButtonClick":'',
+            c = type === 'embed'?'':'<button class="kl-btn-close ">&nbsp;</button>';
+            t = type === 'float'?'popup': type;
+        let form = `<div class="kl-form-outer kl-${t}-outer kl-force-hide">
                         <style>
                             .kl-force-hide {
                                 display: none;
@@ -72,9 +77,10 @@ function KLHistory(t) {
                         </style>
                         <div id="kl-form-172765" kl-id="172765"
                             kl-hash="6af40138e7e2f2706c49d26140be31b65f814e21924cdde978b1d86d26d0a185" kl-lang="en"
-                            class="kl-form kl-form-regular ${type} kl-form-fixed__bottom-right"
-                            kl-show-options="%7B%22scrollTo%22%3A25%2C%22delay%22%3A10%2C%22repeat%22%3A3%2C%22background%22%3A%22rgba(0%2C%200%2C%200%2C%200.5)%22%2C%22position%22%3A%22bottom-right%22%2C%22animation%22%3A%22%22%2C%22hideOnMobile%22%3Afalse%7D">
-                            <div class="kl-form-fields-wrapper"><button class="kl-btn-close ">&nbsp;</button>
+                            class="kl-form kl-form-regular kl-form-${t +" "+ p} "
+                            kl-show-options="%7B%22scrollTo%22%3A25%2C%22delay%22%3A10%2C%22repeat%22%3A3%2C%22background%22%3A%22rgba(0%2C%200%2C%200%2C%200.5)%22%2C%22position%22%3A%22bottom-right${o}%22%2C%22animation%22%3A%22%22%2C%22hideOnMobile%22%3Afalse%7D">
+                            <div class="kl-form-fields-wrapper"> 
+                                ${c}
                                 <div class="kl-message">
                                     <div></div>
                                 </div>
@@ -232,26 +238,12 @@ KLForm.prototype.init = function () {
                 return t.submit(), !1
             }),
             t.$snappchat.off("click").on("click", function () {
-                t.$telegramImg.attr('src', 'https://www.flaticon.com/svg/static/icons/svg/2111/2111813.svg'),
-                t.$messengerImg.attr('src', 'https://www.flaticon.com/svg/static/icons/svg/1400/1400810.svg'),
-                t.$snappchatImg.attr('src', 'https://www.flaticon.com/svg/static/icons/svg/1384/1384066.svg'),
                 t.changeMessenger('Snappchat');
             }),
             t.$messenger.off("click").on("click", function () {
-                // 'https://www.flaticon.com/svg/static/icons/svg/1400/1400810.svg';
-                // 'https://www.flaticon.com/svg/static/icons/svg/1400/1400842.svg';
-                t.$telegramImg.attr('src', 'https://www.flaticon.com/svg/static/icons/svg/2111/2111813.svg'),
-                t.$messengerImg.attr('src', 'https://www.flaticon.com/svg/static/icons/svg/1400/1400842.svg'),
-                t.$snappchatImg.attr('src', 'https://www.flaticon.com/svg/static/icons/svg/1384/1384050.svg'),
                 t.changeMessenger('Messenger');
             }),
             t.$telegram.off("click").on("click", function () {
-                t.$telegramImg.attr('src', 'https://www.flaticon.com/svg/static/icons/svg/2111/2111646.svg'),
-                t.$messengerImg.attr('src', 'https://www.flaticon.com/svg/static/icons/svg/1400/1400810.svg'),
-                t.$snappchatImg.attr('src', 'https://www.flaticon.com/svg/static/icons/svg/1384/1384050.svg'),
-                //https://www.flaticon.com/svg/static/icons/svg/2111/2111813.svg
-                //https://www.flaticon.com/svg/static/icons/svg/2111/2111646.svg
-                // console.log('attr: ',  jQ(t.formSelector + ' div.kl-icon-telegram img'));
                 t.changeMessenger('Telegram');
             }),
             t.previewMode && (t.$form.removeClass("kl-form-popup"), t.$form.removeClass("kl-form-fixed"), t.$formOuter.removeClass("kl-popup-outer"), t.$closeButton.remove(), t.$formOuter.hasClass("kl-force-hide") && setTimeout(function () {
@@ -377,11 +369,14 @@ KLForm.prototype.init = function () {
     },
     KLForm.prototype.changeMessenger = function (type) {
         var t = this;
-        jQ(t.inputsSelector).each(function (e, o) {
-            var r = jQ(o);
-            r.attr("placeholder", `(${type} phone number)`);
+        t.$telegramImg.attr('src', `https://www.flaticon.com/svg/static/icons/svg/2111/${type === 'Telegram'? '2111646' : '2111813'}.svg`),
+            t.$messengerImg.attr('src', `https://www.flaticon.com/svg/static/icons/svg/1400/${type === 'Messenger'? '1400842' : '1400810'}.svg`),
+            t.$snappchatImg.attr('src', `https://www.flaticon.com/svg/static/icons/svg/1384/${type === 'Snappchat'? '1384066' : '1384050'}.svg`),
+            jQ(t.inputsSelector).each(function (e, o) {
+                var r = jQ(o);
+                r.attr("placeholder", `(${type} phone number)`);
 
-        })
+            })
     },
     KLForm.prototype.submit = function () {
         var t = this;
