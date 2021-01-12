@@ -2,6 +2,7 @@
 
 function ResourceLoader() {}
 
+console.log('koala subscription form starting');
 function KLForm(t) {
     var e = this;
     window.KLFormRegistry = window.KLFormRegistry || {},
