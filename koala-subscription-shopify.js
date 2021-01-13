@@ -61,8 +61,9 @@ function KLHistory(t) {
             var c = d.getAttribute("form-type"),
                 s = d.getAttribute("selector"),
                 src=d.getAttribute("src"),
-                p = d.getAttribute("position");            
-                console.log("src: ", parse(src));    
+                p = d.getAttribute("position");           
+                console.log('parse : ', src); 
+             parse(src);    
            s? document.getElementById(s).insertAdjacentHTML('afterbegin',renderForm(c, p) ): document.body.insertAdjacentHTML('beforeend', renderForm(c, p));
         })
     }
