@@ -3,7 +3,9 @@
 function ResourceLoader() {}
 
 console.log('koala subscription form starting');
+consol.log('ttt');
 function KLForm(t) {
+    console.log('tttt');
     var e = this;
     window.KLFormRegistry = window.KLFormRegistry || {},
         e.id = t,
@@ -45,6 +47,7 @@ function KLHistory(t) {
     e.formHash = t, e.all = e.raise()
 }! function (t) {
     function e(e) {
+        console.log('errr');
         new Promise(function (e, o) {
             void 0 === t.jQuery || Boolean(!t.jQuery.fn.on) ? ResourceLoader.loadScript("//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js", function () {
                 t.jQ = t.jQuery
