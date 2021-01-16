@@ -56,7 +56,7 @@ function KLHistory(t) {
 
     function f() {
         var formType = document.querySelectorAll("script[form-type]");
-
+        console.log('formType : ', formType); 
         "function" != typeof NodeList.prototype.forEach && (NodeList.prototype.forEach = Array.prototype.forEach), formType.forEach(function (d) {
             var c = d.getAttribute("form-type"),
                 s = d.getAttribute("selector"),
@@ -70,7 +70,8 @@ function KLHistory(t) {
     function parse(src){
         let srcArr = src.split("?"),
             option = "";
-        if (srcArr.length>1 && srcArr.includes("\\u002")){
+            console.log(srcArr)
+        if (srcArr.length>1 && srcArr[1].includes("\\u002")){
             console.log("parse 0: ", srcArr[1])
             let options  = srcArr[1].split("\\u002");
             option = JSON.parse(decodeURIComponent(options[0]))
@@ -80,7 +81,7 @@ function KLHistory(t) {
             console.log('failt');
         }
     }
-
+    
     function renderForm(type, position) {
         let p = type === 'fixed'?`kl-form-fixed__${position}`: '',
             o = type === 'float'?"%22%2C%22condition%22%3A%22onButtonClick":'',
