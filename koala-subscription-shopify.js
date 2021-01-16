@@ -3,7 +3,7 @@
 function ResourceLoader() {}
 
 console.log('koala subscription form starting');
-consol.log('ttt');
+console.log('ttt');
 function KLForm(t) {
     console.log('tttt');
     var e = this;
