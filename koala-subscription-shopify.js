@@ -140,6 +140,7 @@ function KLHistory(t) {
     }
 
     function o() {
+        console.log('should have here');
         f();
         var e = [],
             o = jQ('div.kl-form [name="sform[phone]"]'),
