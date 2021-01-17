@@ -1,11 +1,31 @@
 "use strict";
 
 function ResourceLoader() {}
-
-console.log('koala subscription form starting');
-console.log('ttt');
+ResourceLoader.loadCss = function (t, e, o) {
+        return new Promise(function (r, s) {
+            var n = document.createElement("link");
+            void 0 === o && (o = !1), n.rel = "stylesheet", n.media = "screen", n.href = t + (o ? "?t=" + (new Date).getTime() : ""), document.getElementsByTagName("head")[0].appendChild(n), n.readyState ? n.onreadystatechange = function () {
+                "loaded" !== n.readyState && "complete" !== n.readyState || (n.onreadystatechange = null, "function" == typeof e && e(), r())
+            } : n.onload = function () {
+                "function" == typeof e && e(), r()
+            }, n.onerror = function () {
+                s(new Error("Loading fail! " + t))
+            }
+        })
+    },
+    ResourceLoader.loadScript = function (t, e, o) {
+        return new Promise(function (r, s) {
+            var n = document.createElement("script");
+            void 0 === o && (o = !1), n.type = "text/javascript", n.async = !0, n.src = t + (o ? "?t=" + (new Date).getTime() : ""), document.getElementsByTagName("head")[0].appendChild(n), n.readyState ? n.onreadystatechange = function () {
+                "loaded" !== n.readyState && "complete" !== n.readyState || (n.onreadystatechange = null, "function" == typeof e && e(), r())
+            } : n.onload = function () {
+                "function" == typeof e && e(), r()
+            }, n.onerror = function () {
+                s(new Error("Loading fail! " + t))
+            }
+        })
+    };
 function KLForm(t) {
-    console.log('tttt');
     var e = this;
     window.KLFormRegistry = window.KLFormRegistry || {},
         e.id = t,
@@ -24,7 +44,7 @@ function KLForm(t) {
         e.formHash = e.$form.attr("kl-hash"),
         e.activeType = 'telegram',
         e.formType = document.querySelectorAll("script[form-type]").length > 0 ? document.querySelectorAll("script[form-type]")[0].getAttribute('form-type') : "fixed";
-        e.inputs = {}, e.inputsSelector = e.formSelector + " .kl-element-container :input",
+    e.inputs = {}, e.inputsSelector = e.formSelector + " .kl-element-container :input",
         e.language = e.$form.attr("kl-lang"),
         e.preparedData = {},
         e.sent = !1,
@@ -47,9 +67,8 @@ function KLHistory(t) {
     e.formHash = t, e.all = e.raise()
 }! function (t) {
     function e(e) {
-        console.log('errr');
         new Promise(function (e, o) {
-            void 0 === t.jQuery || Boolean(!t.jQuery.fn.on) ? ResourceLoader.loadScript("//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js", function () {
+            void 0 === t.jQuery || Boolean(!t.jQuery.fn.on) ? loadScript("//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js", function () {
                 t.jQ = t.jQuery
             }).then(function () {
                 e()
@@ -57,39 +76,49 @@ function KLHistory(t) {
         }).then(e)
     }
 
-    function f() {
-        var formType = document.querySelectorAll("script[form-type]");
-        console.log('formType : ', formType); 
-        "function" != typeof NodeList.prototype.forEach && (NodeList.prototype.forEach = Array.prototype.forEach), formType.forEach(function (d) {
-            var c = d.getAttribute("form-type"),
-                s = d.getAttribute("selector"),
-                src=d.getAttribute("src"),
-                p = d.getAttribute("position");           
-                console.log('parse : ', src); 
-             parse(src);    
-           s? document.getElementById(s).insertAdjacentHTML('afterbegin',renderForm(c, p) ): document.body.insertAdjacentHTML('beforeend', renderForm(c, p));
+    function loadScript(t, e, o) {
+        return new Promise(function (r, s) {
+            var n = document.createElement("script");
+            void 0 === o && (o = !1), n.type = "text/javascript", n.async = !0, n.src = t + (o ? "?t=" + (new Date).getTime() : ""), document.getElementsByTagName("head")[0].appendChild(n), n.readyState ? n.onreadystatechange = function () {
+                "loaded" !== n.readyState && "complete" !== n.readyState || (n.onreadystatechange = null, "function" == typeof e && e(), r())
+            } : n.onload = function () {
+                "function" == typeof e && e(), r()
+            }, n.onerror = function () {
+                s(new Error("Loading fail! " + t))
+            }
         })
     }
-    function parse(src){
+
+    function f() {
+        var formType = document.querySelectorAll("script[src]");
+        "function" != typeof NodeList.prototype.forEach && (NodeList.prototype.forEach = Array.prototype.forEach), formType.forEach(function (d) {
+            if (d.getAttribute('src').includes('koala-subscription-shopify')) {
+                var src = d.getAttribute("src");
+                var option = parse(src);
+                option && option.type?document.body.insertAdjacentHTML('beforeend', renderForm(option)):null;
+            }
+        })
+    }
+
+    function parse(src) {
         let srcArr = src.split("?"),
             option = "";
-            console.log(srcArr)
-        if (srcArr.length>1 && srcArr[1].includes("\\u002")){
-            console.log("parse 0: ", srcArr[1])
-            let options  = srcArr[1].split("\\u002");
+        if (srcArr.length > 1 && srcArr[1].includes("&")) {
+            let options = srcArr[1].split("&");
             option = JSON.parse(decodeURIComponent(options[0]))
-            console.log("parse 1: ", option)
-        }
-        else {
-            console.log('failt');
+            return option;
+        } else {
+            return null;
         }
     }
-    
-    function renderForm(type, position) {
-        let p = type === 'fixed'?`kl-form-fixed__${position}`: '',
-            o = type === 'float'?"%22%2C%22condition%22%3A%22onButtonClick":'',
-            c = type === 'embed'?'':'<button class="kl-btn-close ">&nbsp;</button>';
-            t = type === 'float'?'popup': type;
+
+    function renderForm(option) {
+        let type = option && option.type? option.type: '';
+        let position = option && option.position? option.position: '';
+        let p = type === 'fixed' ? `kl-form-fixed__${position}` : '',
+            o = type === 'float' ? "%22%2C%22condition%22%3A%22onButtonClick" : '',
+            c = type === 'embed' ? '' : '<button class="kl-btn-close ">&nbsp;</button>';
+        t = type === 'float' ? 'popup' : type;
         let form = `<div class="kl-form-outer kl-${t}-outer kl-force-hide">
                         <style>
                             .kl-force-hide {
@@ -99,7 +128,7 @@ function KLHistory(t) {
                         <div id="kl-form-172765" kl-id="172765"
                             kl-hash="6af40138e7e2f2706c49d26140be31b65f814e21924cdde978b1d86d26d0a185" kl-lang="en"
                             class="kl-form kl-form-regular kl-form-${t +" "+ p} "
-                            kl-show-options="%7B%22scrollTo%22%3A25%2C%22delay%22%3A10%2C%22repeat%22%3A3%2C%22background%22%3A%22rgba(0%2C%200%2C%200%2C%200.5)%22%2C%22position%22%3A%22bottom-right${o}%22%2C%22animation%22%3A%22%22%2C%22hideOnMobile%22%3Afalse%7D">
+                            kl-show-options="%7B%22scrollTo%22%3A25%2C%22delay%22%3A10%2C%22repeat%22%3A3%2C%22background%22%3A%22rgba(0%2C%200%2C%200%2C%200.5)${o}%22%2C%22animation%22%3A%22%22%2C%22hideOnMobile%22%3Afalse%7D">
                             <div class="kl-form-fields-wrapper"> 
                                 ${c}
                                 <div class="kl-message">
@@ -143,12 +172,10 @@ function KLHistory(t) {
     }
 
     function o() {
-        console.log('should have here');
         f();
         var e = [],
             o = jQ('div.kl-form [name="sform[phone]"]'),
             i = r();
-
         new Promise(function (t, r) {
             o.length > 0 && (
                     e.push(ResourceLoader.loadCss("//manhncse02926.github.io/koala/form.css")),
@@ -178,47 +205,38 @@ function KLHistory(t) {
         }
         return o
     }
-    t.KLFormBootstrap = function () {
+
+    function KLFormBootstrap() {
         "undefined" != typeof Promise && -1 !== Promise.toString().indexOf("[native code]") ? e(o) : ResourceLoader.loadPromisePolyfill(function () {
             e(o)
         })
-    }, t.addEventListener("load", t.KLFormBootstrap, !1)
+    }
+    t.addEventListener("onload", KLFormBootstrap(), !1)
 }(window),
-ResourceLoader.loadScript = function (t, e, o) {
-        return new Promise(function (r, s) {
-            var n = document.createElement("script");
-            void 0 === o && (o = !1), n.type = "text/javascript", n.async = !0, n.src = t + (o ? "?t=" + (new Date).getTime() : ""), document.getElementsByTagName("head")[0].appendChild(n), n.readyState ? n.onreadystatechange = function () {
-                "loaded" !== n.readyState && "complete" !== n.readyState || (n.onreadystatechange = null, "function" == typeof e && e(), r())
-            } : n.onload = function () {
-                "function" == typeof e && e(), r()
-            }, n.onerror = function () {
-                s(new Error("Loading fail! " + t))
-            }
-        })
-    },
-    ResourceLoader.loadCss = function (t, e, o) {
-        return new Promise(function (r, s) {
-            var n = document.createElement("link");
-            void 0 === o && (o = !1), n.rel = "stylesheet", n.media = "screen", n.href = t + (o ? "?t=" + (new Date).getTime() : ""), document.getElementsByTagName("head")[0].appendChild(n), n.readyState ? n.onreadystatechange = function () {
-                "loaded" !== n.readyState && "complete" !== n.readyState || (n.onreadystatechange = null, "function" == typeof e && e(), r())
-            } : n.onload = function () {
-                "function" == typeof e && e(), r()
-            }, n.onerror = function () {
-                s(new Error("Loading fail! " + t))
-            }
-        })
-    },
-    ResourceLoader.loadPromisePolyfill = function (t, e) {
-        var o = "//polyfill.io/v2/polyfill.min.js?flags=gated,always&features=Promise,&rum=0",
-            r = document.createElement("script");
-        void 0 === e && (e = !1), r.type = "text/javascript", r.async = !1, r.src = o + (e ? "?t=" + (new Date).getTime() : ""), document.getElementsByTagName("head")[0].appendChild(r), r.readyState ? r.onreadystatechange = function () {
-            "loaded" !== r.readyState && "complete" !== r.readyState || (r.onreadystatechange = null, "function" == typeof t && t())
-        } : r.onload = function () {
-            "function" == typeof t && t()
-        }, r.onerror = function () {
-            throw new Error("Loading fail! " + o)
+function loadScript(t, e, o) {
+    return new Promise(function (r, s) {
+        var n = document.createElement("script");
+        void 0 === o && (o = !1), n.type = "text/javascript", n.async = !0, n.src = t + (o ? "?t=" + (new Date).getTime() : ""), document.getElementsByTagName("head")[0].appendChild(n), n.readyState ? n.onreadystatechange = function () {
+            "loaded" !== n.readyState && "complete" !== n.readyState || (n.onreadystatechange = null, "function" == typeof e && e(), r())
+        } : n.onload = function () {
+            "function" == typeof e && e(), r()
+        }, n.onerror = function () {
+            s(new Error("Loading fail! " + t))
         }
-    };
+    })
+},
+
+ResourceLoader.loadPromisePolyfill = function (t, e) {
+    var o = "//polyfill.io/v2/polyfill.min.js?flags=gated,always&features=Promise,&rum=0",
+        r = document.createElement("script");
+    void 0 === e && (e = !1), r.type = "text/javascript", r.async = !1, r.src = o + (e ? "?t=" + (new Date).getTime() : ""), document.getElementsByTagName("head")[0].appendChild(r), r.readyState ? r.onreadystatechange = function () {
+        "loaded" !== r.readyState && "complete" !== r.readyState || (r.onreadystatechange = null, "function" == typeof t && t())
+    } : r.onload = function () {
+        "function" == typeof t && t()
+    }, r.onerror = function () {
+        throw new Error("Loading fail! " + o)
+    }
+};
 var _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (t) {
     return typeof t
 } : function (t) {
