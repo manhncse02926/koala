@@ -119,7 +119,7 @@ function KLHistory(t) {
             o = type === 'exit' ? "%22%2C%22condition%22%3A%22onCursorLeave" : '',
             d = option && option.delay ? `%22%2C%22delay%22%3A%22${option.delay}`: '',
             c = type === 'embed' ? '' : '<button class="kl-btn-close ">&nbsp;</button>';
-        t = type === 'float' || 'exit' ? 'popup' : type;
+        t = type === 'float' || type === 'exit' ? 'popup' : type;
         let form = `<div class="kl-form-outer kl-${t}-outer kl-force-hide">
                         <style>
                             .kl-force-hide {
@@ -328,7 +328,6 @@ KLForm.prototype.init = function () {
                     o.$formOuter.removeClass("kl-showing")
                 }, 400)
             }, t)
-            clearTimeout(t);
         }
 
         function e() {
@@ -353,7 +352,7 @@ KLForm.prototype.init = function () {
                     jQ("#kl-form-" + t).parent(".kl-form-outer").removeClass("kl-force-hide").removeClass("kl-hide").addClass("kl-show"), e()
                 }), !0
             }())) {
-            if (o.$formOuter.removeClass("kl-force-hide"), o.previewMode) return void t();
+            if (o.$formOuter.removeClass("kl-force-hide") && !o.showOptions.condition) return void t();
             if ("embed" !== o.formType) { //form type here check
                 if (o.history.getSubmits().length) return;
                 if (o.history.getRejects().length > 1) return;
