@@ -2,7 +2,6 @@
 
 function ResourceLoader() {}
 
-console.log('koala subscription form starting');
 function KLForm(t) {
     var e = this;
     window.KLFormRegistry = window.KLFormRegistry || {},
@@ -22,6 +21,7 @@ function KLForm(t) {
         e.formHash = e.$form.attr("kl-hash"),
         e.activeType = 'telegram',
         e.formType = document.querySelectorAll("script[form-type]").length > 0 ? document.querySelectorAll("script[form-type]")[0].getAttribute('form-type') : "fixed";
+        e.delay = document.querySelectorAll("script[form-type]").length > 0 ? document.querySelectorAll("script[form-type]")[0].getAttribute('delay') : 0;
         e.inputs = {}, e.inputsSelector = e.formSelector + " .kl-element-container :input",
         e.language = e.$form.attr("kl-lang"),
         e.preparedData = {},
@@ -67,10 +67,10 @@ function KLHistory(t) {
 
     function renderForm(type, position) {
         let p = type === 'fixed'?`kl-form-fixed__${position}`: '',
-            o = type === 'float'?"%22%2C%22condition%22%3A%22onButtonClick":'',
+            o = type === 'exit' ? "%22%2C%22condition%22%3A%22onCursorLeave" : '',
             c = type === 'embed'?'':'<button class="kl-btn-close ">&nbsp;</button>';
-            t = type === 'float'?'popup': type;
-        let form = `<div class="kl-form-outer kl-${t}-outer kl-force-hide">
+            t = type === 'float' || type === 'exit' ? 'popup' : type;
+            let form = `<div class="kl-form-outer kl-${t}-outer kl-force-hide">
                         <style>
                             .kl-force-hide {
                                 display: none;
@@ -79,7 +79,7 @@ function KLHistory(t) {
                         <div id="kl-form-172765" kl-id="172765"
                             kl-hash="6af40138e7e2f2706c49d26140be31b65f814e21924cdde978b1d86d26d0a185" kl-lang="en"
                             class="kl-form kl-form-regular kl-form-${t +" "+ p} "
-                            kl-show-options="%7B%22scrollTo%22%3A25%2C%22delay%22%3A10%2C%22repeat%22%3A3%2C%22background%22%3A%22rgba(0%2C%200%2C%200%2C%200.5)%22%2C%22position%22%3A%22bottom-right${o}%22%2C%22animation%22%3A%22%22%2C%22hideOnMobile%22%3Afalse%7D">
+                            kl-show-options="%7B%22scrollTo%22%3A25%2C%22repeat%22%3A3%2C%22background%22%3A%22rgba(0%2C%200%2C%200%2C%200.5)${o}%22%2C%22animation%22%3A%22%22%2C%22hideOnMobile%22%3Afalse%7D">
                             <div class="kl-form-fields-wrapper"> 
                                 ${c}
                                 <div class="kl-message">
@@ -312,7 +312,7 @@ KLForm.prototype.init = function () {
                     jQ("#kl-form-" + t).parent(".kl-form-outer").removeClass("kl-force-hide").removeClass("kl-hide").addClass("kl-show"), e()
                 }), !0
             }())) {
-            if (o.$formOuter.removeClass("kl-force-hide")) return void t();
+            if (o.$formOuter.removeClass("kl-force-hide")  && !o.showOptions.condition) return void t();
             if ("embed" !== o.formType) { //form type here check
                 if (o.history.getSubmits().length) return;
                 if (o.history.getRejects().length > 1) return;
@@ -321,7 +321,7 @@ KLForm.prototype.init = function () {
                         s = (r - o.history.getLastShow()) / 864e5;
                     if (o.showOptions.repeat > 0 && s < o.showOptions.repeat) return
                 }
-                "popup" !== o.formType && "fixed" !== o.formType || (! function () {
+                "exit" !== o.formType && "popup" !== o.formType && "fixed" !== o.formType || (! function () {
                     switch (o.showOptions.condition) {
                         case "onEnter":
                             t(o.showOptions.delay);
@@ -334,7 +334,7 @@ KLForm.prototype.init = function () {
                             break;
                         case "onCursorLeave":
                             jQ("body").on("mouseleave", function (e) {
-                                (e.clientY <= 0 || e.clientX <= 0 || e.clientX >= window.innerWidth || e.clientY >= window.innerHeight) && t()
+                                t(o.delay || 0)
                             });
                             break;
                         case "onClose":
