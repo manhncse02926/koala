@@ -96,7 +96,7 @@ function KLHistory(t) {
                 var src = d.getAttribute("src");
                 var option = parse(src);
                 if ( option && option.type && option.type === 'topbot'){
-                    document.body.insertAdjacentHTML('beforeend', renderFormHorizontal(option.position))
+                    document.body.insertAdjacentHTML('afterbegin', renderFormHorizontal(option.position))
                     return;
                 }
                 option && option.type?document.body.insertAdjacentHTML('beforeend', renderForm(option)):null;
@@ -120,6 +120,7 @@ function KLHistory(t) {
         let form = `<div class="kl-form-outer kl-force-hide"
         style="background-color: cadetblue; position: fixed; ${position} left: 0px; z-index: 999999; width: 100%; line-height: 0px; display: block;">
         <div id="kl-form-172781" kl-id="172781" class="kl-form kl-form-regular kl-form-embed kl-form-horizontal">
+        <iframe  title="Topbar" frameborder="0" scrolling="no" allowtransparency="true" style="background: transparent; border: 0px; width: 100%; height: 50px; z-index: 18000; margin-bottom: 0px; margin-top: 0px;">
             <div class="kl-form-fields-wrapper">
                 <div class="kl-message">
                     <div></div>
@@ -155,6 +156,7 @@ function KLHistory(t) {
                     </div>
                 </form>
             </div>
+            </iframe>
         </div>
     </div>`
     return form;
