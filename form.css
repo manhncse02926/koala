@@ -21,6 +21,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    width: 50%;
 }
 
 .kl-icon-horizontal {
@@ -73,7 +74,6 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
   }
 
 .kl-form[kl-id="172765"] input[type="checkbox"] {
