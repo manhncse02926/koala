@@ -95,6 +95,10 @@ function KLHistory(t) {
             if (d.getAttribute('src').includes('koala-subscription-shopify')) {
                 var src = d.getAttribute("src");
                 var option = parse(src);
+                if ( option && option.type && option.type === 'topbot'){
+                    document.body.insertAdjacentHTML('beforeend', renderFormHorizontal(option.position))
+                    return;
+                }
                 option && option.type?document.body.insertAdjacentHTML('beforeend', renderForm(option)):null;
             }
         })
@@ -110,6 +114,50 @@ function KLHistory(t) {
         } else {
             return null;
         }
+    }
+    function renderFormHorizontal(p){
+        let position =  p === 'top' ? "top: 0px;": "bottom: 0px;"
+        let form = `<div class="kl-form-outer kl-force-hide"
+        style="background-color: cadetblue; position: fixed; ${position} left: 0px; z-index: 999999; width: 100%; line-height: 0px; display: block;">
+        <div id="kl-form-172781" kl-id="172781" class="kl-form kl-form-regular kl-form-embed kl-form-horizontal">
+            <div class="kl-form-fields-wrapper">
+                <div class="kl-message">
+                    <div></div>
+                </div>
+                <form novalidate="" class="kl-element-container ui-sortable ui-droppable kl-field-horizontal ">
+                    <div class="kl-field kl-field-full-width " kl-id="kl-a0483af3-2260-4951-b069-30429513e60f">
+                        <div style="font-family: inherit; line-height: 1.2;">Stay up to date and join our newsletter to
+                            receive the latest updates.</div>
+                    </div>
+                    <div class="kl-field">
+                        <div class="kl-header-icon-horizontal">
+                            <div class="kl-icon-telegram kl-icon-horizontal">
+                                <img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111646.svg"
+                                    class="telegram" alt="Telegram" width="32" height="32">
+                            </div>
+                            <div class="kl-icon-snappchat kl-icon-horizontal">
+                                <img src="https://www.flaticon.com/svg/static/icons/svg/1384/1384050.svg"
+                                    alt="Snappchat" width="32" height="32">
+                            </div>
+                            <div class="kl-icon-messenger kl-icon-horizontal">
+                                <img src="https://www.flaticon.com/svg/static/icons/svg/1400/1400810.svg"
+                                    alt="Messenger" width="32" height="32">
+                            </div>
+                        </div>
+                        <input type="tel" kl-type="phone" name="sform[phone]" class="kl-form-control "
+                            placeholder="(Telegram phone number)" kl-tips="%7B%22wrong%22%3A%22Wrong%20phone%22%7D">
+                    </div>
+                    <div class="kl-field kl-button-container ">
+                        <button class="kl-button">Subscribe</button>
+                    </div>
+                    <div class="kl-field kl-button-container">
+                        <button class="kl-btn-close-horizontal">&nbsp;</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>`
+    return form;
     }
 
     function renderForm(option) {
