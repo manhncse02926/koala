@@ -132,7 +132,7 @@ function KLHistory(t) {
                     </div>
                 </div>
                 <div class="kl-button-container">
-                    <button id="kl-13093b1c-283f-4c8f-8e9d-601ea2a4c7fc" class="kl-button">Submit</button>
+                    <button id="kl-13093b1c-283f-4c8f-8e9d-601ea2a4c7fc" class="kl-button">Subscribe</button>
                 </div>
                 <button class="kl-btn-close-horizontal">&nbsp;</button>
             </form>
@@ -199,7 +199,7 @@ function KLHistory(t) {
                                         </div>
                                     </div>
                                     <div class="kl-button-container">
-                                        <button class="kl-button kl-full-button">Submit</button>
+                                        <button class="kl-button kl-full-button">Subscribe</button>
                                     </div>
                                 </form>
                                 <div class="kl-link-wrapper">
@@ -285,7 +285,7 @@ function KLHistory(t) {
                                         </div>
                                     </div>
                                     <div class="kl-button-container " kl-id="kl-13093b1c-283f-4c8f-8e9d-601ea2a4c7fc">
-                                        <button id="kl-13093b1c-283f-4c8f-8e9d-601ea2a4c7fc" class="kl-button">Submit</button>
+                                        <button id="kl-13093b1c-283f-4c8f-8e9d-601ea2a4c7fc" class="kl-button">Subscribe</button>
                                     </div>
                                 </form>
                                 <div class="kl-link-wrapper">
