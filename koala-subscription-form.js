@@ -132,7 +132,7 @@ function KLHistory(t) {
                     </div>
                 </div>
                 <div class="kl-button-container">
-                    <button id="kl-13093b1c-283f-4c8f-8e9d-601ea2a4c7fc" class="kl-button">Subscribe</button>
+                    <button id="kl-13093b1c-283f-4c8f-8e9d-601ea2a4c7fc" class="kl-button" onClick="()">Subscribe</button>
                 </div>
                 <button class="kl-btn-close-horizontal">&nbsp;</button>
             </form>
@@ -598,45 +598,47 @@ KLForm.prototype.init = function () {
         t.scrollItem = t.scrollItem-1;
     },
     KLForm.prototype.submit = function () {
-        var t = this;
-        if (!t.sent && (t.validateAll(), t.valid)) {
-            if ("popup" === t.formType && t.history.getSubmits().length > 1) return console.warn("Form has been submitted twice already. Enough!"), t.close(), !1;
-            t.$submitButton.addClass("btn-loading"), t.disableInputs(), t.putInstanceToRegistry(),
-                function () {
-                    for (var e in t.inputs)
-                        if (t.inputs.hasOwnProperty(e)) {
-                            var o = t.inputs[e];
-                            switch (o.attr("kl-type")) {
-                                case "phone":
-                                    t.preparedData[e] = o.intlTelInput("getNumber");
-                                    break;
-                                default:
-                                    t.preparedData[e] = o.val()
-                            }
-                        } t.preparedData.sform_lang = t.language, t.preparedData["sform[hash]"] = t.formHash, t.preparedData["sform[" + window.btoa("autoSite") + "]"] = window.location.hostname, jQ.isEmptyObject(t.ipInfo) || (t.preparedData["sform[" + window.btoa("autoIp") + "]"] = t.ipInfo.ip, t.preparedData["sform[" + window.btoa("autoCity") + "]"] = t.ipInfo.city, t.preparedData["sform[" + window.btoa("autoRegion") + "]"] = t.ipInfo.region, t.preparedData["sform[" + window.btoa("autoCountry") + "]"] = t.ipInfo.country), "undefined" !== t.showOptions.utmEnable && !0 === t.showOptions.utmEnable && (t.preparedData["sform[" + window.btoa("visitFirstType") + "]"] = sbjs.get.first.typ, "(direct)" === sbjs.get.first.src ? t.preparedData["sform[" + window.btoa("visitFirstUtmSource") + "]"] = sbjs.get.first.src.substring(1, sbjs.get.first.src.length - 1) : t.preparedData["sform[" + window.btoa("visitFirstUtmSource") + "]"] = sbjs.get.first.src, "(none)" !== sbjs.get.first.mdm && (t.preparedData["sform[" + window.btoa("visitFirstMedium") + "]"] = sbjs.get.first.mdm), "(none)" !== sbjs.get.first.cmp && (t.preparedData["sform[" + window.btoa("visitFirstCampaign") + "]"] = sbjs.get.first.cmp), "(none)" !== sbjs.get.first.cnt && (t.preparedData["sform[" + window.btoa("visitFirstContent") + "]"] = sbjs.get.first.cnt), "(none)" !== sbjs.get.first.trm && (t.preparedData["sform[" + window.btoa("visitFirstUtmTerm") + "]"] = sbjs.get.first.trm), t.preparedData["sform[" + window.btoa("visitSubscribeType") + "]"] = sbjs.get.current.typ, "(direct)" === sbjs.get.current.src ? t.preparedData["sform[" + window.btoa("visitSubscribeSource") + "]"] = sbjs.get.current.src.substring(1, sbjs.get.current.src.length - 1) : t.preparedData["sform[" + window.btoa("visitSubscribeSource") + "]"] = sbjs.get.current.src, "(none)" !== sbjs.get.current.mdm && (t.preparedData["sform[" + window.btoa("visitSubscribeMedium") + "]"] = sbjs.get.current.mdm), "(none)" !== sbjs.get.current.cmp && (t.preparedData["sform[" + window.btoa("visitSubscribeCampaign") + "]"] = sbjs.get.current.cmp), "(none)" !== sbjs.get.current.cnt && (t.preparedData["sform[" + window.btoa("visitSubscribeContent") + "]"] = sbjs.get.current.cnt), "(none)" !== sbjs.get.current.trm && (t.preparedData["sform[" + window.btoa("visitSubscribeTerm") + "]"] = sbjs.get.current.trm))
-                }(),
-                function () {
-                    jQ.ajax({
-                        url: t.submitURL + "?callback=?",
-                        dataType: "jsonp",
-                        data: t.preparedData,
-                        jsonpCallback: t.makeCallbackName("cbSubmit"),
-                        statusCode: function () {
-                            alert("This form cannot be submitted because the referrer is missing. Appeal to site admin please.")
-                        }
-                    })
-                }(),
-                function () {
-                    var e = document.querySelector(".kl-form-outer"),
-                        o = new CustomEvent("KLFormSubmitEvent", {
-                            detail: {
-                                formId: t.id
-                            },
-                            bubbles: !0
-                        });
-                    e.dispatchEvent(o)
-                }()
-        }
+        console.log('submit');
+        window.open("https://t.me/bobachatdemo_bot");
+        // var t = this;
+        // if (!t.sent && (t.validateAll(), t.valid)) {
+        //     if ("popup" === t.formType && t.history.getSubmits().length > 1) return console.warn("Form has been submitted twice already. Enough!"), t.close(), !1;
+        //     t.$submitButton.addClass("btn-loading"), t.disableInputs(), t.putInstanceToRegistry(),
+        //         function () {
+        //             for (var e in t.inputs)
+        //                 if (t.inputs.hasOwnProperty(e)) {
+        //                     var o = t.inputs[e];
+        //                     switch (o.attr("kl-type")) {
+        //                         case "phone":
+        //                             t.preparedData[e] = o.intlTelInput("getNumber");
+        //                             break;
+        //                         default:
+        //                             t.preparedData[e] = o.val()
+        //                     }
+        //                 } t.preparedData.sform_lang = t.language, t.preparedData["sform[hash]"] = t.formHash, t.preparedData["sform[" + window.btoa("autoSite") + "]"] = window.location.hostname, jQ.isEmptyObject(t.ipInfo) || (t.preparedData["sform[" + window.btoa("autoIp") + "]"] = t.ipInfo.ip, t.preparedData["sform[" + window.btoa("autoCity") + "]"] = t.ipInfo.city, t.preparedData["sform[" + window.btoa("autoRegion") + "]"] = t.ipInfo.region, t.preparedData["sform[" + window.btoa("autoCountry") + "]"] = t.ipInfo.country), "undefined" !== t.showOptions.utmEnable && !0 === t.showOptions.utmEnable && (t.preparedData["sform[" + window.btoa("visitFirstType") + "]"] = sbjs.get.first.typ, "(direct)" === sbjs.get.first.src ? t.preparedData["sform[" + window.btoa("visitFirstUtmSource") + "]"] = sbjs.get.first.src.substring(1, sbjs.get.first.src.length - 1) : t.preparedData["sform[" + window.btoa("visitFirstUtmSource") + "]"] = sbjs.get.first.src, "(none)" !== sbjs.get.first.mdm && (t.preparedData["sform[" + window.btoa("visitFirstMedium") + "]"] = sbjs.get.first.mdm), "(none)" !== sbjs.get.first.cmp && (t.preparedData["sform[" + window.btoa("visitFirstCampaign") + "]"] = sbjs.get.first.cmp), "(none)" !== sbjs.get.first.cnt && (t.preparedData["sform[" + window.btoa("visitFirstContent") + "]"] = sbjs.get.first.cnt), "(none)" !== sbjs.get.first.trm && (t.preparedData["sform[" + window.btoa("visitFirstUtmTerm") + "]"] = sbjs.get.first.trm), t.preparedData["sform[" + window.btoa("visitSubscribeType") + "]"] = sbjs.get.current.typ, "(direct)" === sbjs.get.current.src ? t.preparedData["sform[" + window.btoa("visitSubscribeSource") + "]"] = sbjs.get.current.src.substring(1, sbjs.get.current.src.length - 1) : t.preparedData["sform[" + window.btoa("visitSubscribeSource") + "]"] = sbjs.get.current.src, "(none)" !== sbjs.get.current.mdm && (t.preparedData["sform[" + window.btoa("visitSubscribeMedium") + "]"] = sbjs.get.current.mdm), "(none)" !== sbjs.get.current.cmp && (t.preparedData["sform[" + window.btoa("visitSubscribeCampaign") + "]"] = sbjs.get.current.cmp), "(none)" !== sbjs.get.current.cnt && (t.preparedData["sform[" + window.btoa("visitSubscribeContent") + "]"] = sbjs.get.current.cnt), "(none)" !== sbjs.get.current.trm && (t.preparedData["sform[" + window.btoa("visitSubscribeTerm") + "]"] = sbjs.get.current.trm))
+        //         }(),
+        //         function () {
+        //             jQ.ajax({
+        //                 url: t.submitURL + "?callback=?",
+        //                 dataType: "jsonp",
+        //                 data: t.preparedData,
+        //                 jsonpCallback: t.makeCallbackName("cbSubmit"),
+        //                 statusCode: function () {
+        //                     alert("This form cannot be submitted because the referrer is missing. Appeal to site admin please.")
+        //                 }
+        //             })
+        //         }(),
+        //         function () {
+        //             var e = document.querySelector(".kl-form-outer"),
+        //                 o = new CustomEvent("KLFormSubmitEvent", {
+        //                     detail: {
+        //                         formId: t.id
+        //                     },
+        //                     bubbles: !0
+        //                 });
+        //             e.dispatchEvent(o)
+        //         }()
+        // }
     },
     KLForm.prototype.makeCallbackName = function (t) {
         return "KLFormRegistry['" + this.formHash + "']." + t
