@@ -103,30 +103,30 @@ function KLHistory(t) {
                     <div class="kl-left-arrow kl-arrow-deactive">
                     </div>
                     <div class="kl-header-icon-horizontal">
-                        <div class="kl-icon-telegram kl-icon-horizontal">
-                            <img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111646.svg" class="telegram"
-                                alt="Telegram" width="40" height="40">
-                        </div>
-                        <div class="kl-icon-snappchat kl-icon-horizontal">
-                            <img src="https://www.flaticon.com/svg/static/icons/svg/1384/1384050.svg" alt="Snappchat"
-                                width="40" height="40">
-                        </div>
-                        <div class="kl-icon-messenger kl-icon-horizontal">
-                            <img src="https://www.flaticon.com/svg/static/icons/svg/1400/1400810.svg" alt="Messenger"
-                                width="40" height="40">
-                        </div>
-                        <div class="kl-icon-telegram kl-icon-horizontal">
-                            <img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111646.svg" class="telegram"
-                                alt="Telegram" width="40" height="40">
-                        </div>
-                        <div class="kl-icon-snappchat kl-icon-horizontal">
-                            <img src="https://www.flaticon.com/svg/static/icons/svg/1384/1384050.svg" alt="Snappchat"
-                                width="40" height="40">
-                        </div>
-                        <div class="kl-icon-messenger kl-icon-horizontal">
-                            <img src="https://www.flaticon.com/svg/static/icons/svg/1400/1400810.svg" alt="Messenger"
-                                width="40" height="40">
-                        </div>
+                    <div class="kl-icon-telegram kl-icon-horizontal">
+                    <img src="../assets/telegram.svg"
+                    alt="Snappchat" width="40" height="40">
+                </div>
+                <div class="kl-icon-snappchat kl-icon-horizontal">
+                    <img src="../assets/line.svg"
+                    alt="Snappchat" width="40" height="40">
+                </div>
+                <div class="kl-icon-messenger kl-icon-horizontal">
+                    <img src="../assets/slack.svg"
+                    alt="Snappchat" width="30" height="40">
+                </div>
+                <div class="kl-icon-telegram kl-icon-horizontal">
+                    <img src="../assets/skype.svg"
+                    alt="Snappchat" width="40" height="40">
+                </div>
+                <div class="kl-icon-snappchat kl-icon-horizontal">
+                    <img src="../assets/whatsapp.svg"
+                    alt="Snappchat" width="40" height="40">
+                </div>
+                <div class="kl-icon-messenger kl-icon-horizontal">
+                    <img src="../assets/viber.svg"
+                    alt="Snappchat" width="40" height="40">
+                </div>
                     </div>
                     <div class="kl-right-arrow">
                     </div>
@@ -171,28 +171,28 @@ function KLHistory(t) {
                                     </div>
                                         <div class="kl-header-icon-horizontal">
                                             <div class="kl-icon-telegram kl-icon-horizontal">
-                                                <img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111646.svg"
-                                                    class="telegram" alt="Telegram" width="40" height="40">
+                                                <img src="../assets/telegram.svg"
+                                                alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-snappchat kl-icon-horizontal">
-                                                <img src="https://www.flaticon.com/svg/static/icons/svg/1384/1384050.svg"
-                                                    alt="Snappchat" width="40" height="40">
+                                                <img src="../assets/line.svg"
+                                                alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-messenger kl-icon-horizontal">
-                                                <img src="https://www.flaticon.com/svg/static/icons/svg/1400/1400810.svg"
-                                                    alt="Messenger" width="40" height="40">
+                                                <img src="../assets/slack.svg"
+                                                alt="Snappchat" width="30" height="40">
                                             </div>
                                             <div class="kl-icon-telegram kl-icon-horizontal">
-                                            <img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111646.svg"
-                                                class="telegram" alt="Telegram" width="40" height="40">
+                                                <img src="../assets/skype.svg"
+                                                alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-snappchat kl-icon-horizontal">
-                                                <img src="https://www.flaticon.com/svg/static/icons/svg/1384/1384050.svg"
-                                                    alt="Snappchat" width="40" height="40">
+                                                <img src="../assets/whatsapp.svg"
+                                                alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-messenger kl-icon-horizontal">
-                                                <img src="https://www.flaticon.com/svg/static/icons/svg/1400/1400810.svg"
-                                                    alt="Messenger" width="40" height="40">
+                                                <img src="../assets/viber.svg"
+                                                alt="Snappchat" width="40" height="40">
                                             </div>
                                         </div>
                                         <div class="kl-right-arrow">
@@ -257,28 +257,28 @@ function KLHistory(t) {
                                     </div>
                                         <div class="kl-header-icon-horizontal">
                                             <div class="kl-icon-telegram kl-icon-horizontal">
-                                                <img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111646.svg"
-                                                    class="telegram" alt="Telegram" width="40" height="40">
+                                                <img src="../assets/telegram.svg"
+                                                alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-snappchat kl-icon-horizontal">
-                                                <img src="https://www.flaticon.com/svg/static/icons/svg/1384/1384050.svg"
-                                                    alt="Snappchat" width="40" height="40">
+                                                <img src="../assets/line.svg"
+                                                alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-messenger kl-icon-horizontal">
-                                                <img src="https://www.flaticon.com/svg/static/icons/svg/1400/1400810.svg"
-                                                    alt="Messenger" width="40" height="40">
+                                                <img src="../assets/slack.svg"
+                                                alt="Snappchat" width="30" height="40">
                                             </div>
                                             <div class="kl-icon-telegram kl-icon-horizontal">
-                                            <img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111646.svg"
-                                                class="telegram" alt="Telegram" width="40" height="40">
+                                                <img src="../assets/viber.svg"
+                                                alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-snappchat kl-icon-horizontal">
-                                                <img src="https://www.flaticon.com/svg/static/icons/svg/1384/1384050.svg"
+                                                <img src="../assets/whatsapp.svg"
                                                     alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-messenger kl-icon-horizontal">
-                                                <img src="https://www.flaticon.com/svg/static/icons/svg/1400/1400810.svg"
-                                                    alt="Messenger" width="40" height="40">
+                                                <img src="../assets/skype.svg"
+                                                alt="Snappchat" width="40" height="40">
                                             </div>
                                         </div>
                                         <div class="kl-right-arrow">
@@ -556,14 +556,15 @@ KLForm.prototype.init = function () {
     },
     KLForm.prototype.changeMessenger = function (type) {
         var t = this;
-        t.$telegramImg.attr('src', `https://www.flaticon.com/svg/static/icons/svg/2111/${type === 'Telegram'? '2111646' : '2111813'}.svg`),
-            t.$messengerImg.attr('src', `https://www.flaticon.com/svg/static/icons/svg/1400/${type === 'Messenger'? '1400842' : '1400810'}.svg`),
-            t.$snappchatImg.attr('src', `https://www.flaticon.com/svg/static/icons/svg/1384/${type === 'Snappchat'? '1384066' : '1384050'}.svg`),
-            jQ(t.inputsSelector).each(function (e, o) {
-                var r = jQ(o);
-                r.attr("placeholder", `(${type} phone number)`);
+        return;
+        // t.$telegramImg.attr('src', `https://www.flaticon.com/svg/static/icons/svg/2111/${type === 'Telegram'? '2111646' : '2111813'}.svg`),
+        //     t.$messengerImg.attr('src', `https://www.flaticon.com/svg/static/icons/svg/1400/${type === 'Messenger'? '1400842' : '1400810'}.svg`),
+        //     t.$snappchatImg.attr('src', `https://www.flaticon.com/svg/static/icons/svg/1384/${type === 'Snappchat'? '1384066' : '1384050'}.svg`),
+        //     jQ(t.inputsSelector).each(function (e, o) {
+        //         var r = jQ(o);
+        //         r.attr("placeholder", `(${type} phone number)`);
 
-            })
+        //     })
     },
     KLForm.prototype.scrollRight = function () {
         var t = this;
@@ -598,7 +599,6 @@ KLForm.prototype.init = function () {
         t.scrollItem = t.scrollItem-1;
     },
     KLForm.prototype.submit = function () {
-        console.log('submit');
         window.open("https://t.me/bobachatdemo_bot");
         // var t = this;
         // if (!t.sent && (t.validateAll(), t.valid)) {
