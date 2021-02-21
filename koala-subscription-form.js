@@ -82,14 +82,14 @@ function KLHistory(t) {
         <div id="kl-form-172781" kl-id="172781" class="kl-form-regular kl-form-embed">
             <form novalidate="" class="kl-form-horizontal">
                 <div class="kl-power-by-wrp">
-                    <img src="../assets/logo.svg"
+                    <img src="https://manhncse02926.github.io/koala/assets/logo.svg"
                                     alt="Messenger" width="108" height="20">
                     <div class="kl-power-by-hr">
                         PROVIDE BY BOBACHAT
                     </div>
                 </div>
                 <div class="kl-field kl-img-hr-container">
-                    <img src="../assets/qr_code.png" alt="QRCODE" class="kl-telegram-hr-qr">
+                    <img src="https://manhncse02926.github.io/koala/assets/qr_code.png" alt="QRCODE" class="kl-telegram-hr-qr">
                 </div>
                 <div class="kl-field kl-description">
                     <div class="kl-title">
@@ -104,27 +104,27 @@ function KLHistory(t) {
                     </div>
                     <div class="kl-header-icon-horizontal">
                     <div class="kl-icon-telegram kl-icon-horizontal">
-                    <img src="../assets/telegram.svg"
+                    <img src="https://manhncse02926.github.io/koala/assets/telegram.svg"
                     alt="Snappchat" width="40" height="40">
                 </div>
                 <div class="kl-icon-snappchat kl-icon-horizontal">
-                    <img src="../assets/line.svg"
+                    <img src="https://manhncse02926.github.io/koala/assets/line.svg"
                     alt="Snappchat" width="40" height="40">
                 </div>
                 <div class="kl-icon-messenger kl-icon-horizontal">
-                    <img src="../assets/slack.svg"
+                    <img src="https://manhncse02926.github.io/koala/assets/slack.svg"
                     alt="Snappchat" width="30" height="40">
                 </div>
                 <div class="kl-icon-telegram kl-icon-horizontal">
-                    <img src="../assets/skype.svg"
+                    <img src="https://manhncse02926.github.io/koala/assets/skype.svg"
                     alt="Snappchat" width="40" height="40">
                 </div>
                 <div class="kl-icon-snappchat kl-icon-horizontal">
-                    <img src="../assets/whatsapp.svg"
+                    <img src="https://manhncse02926.github.io/koala/assets/whatsapp.svg"
                     alt="Snappchat" width="40" height="40">
                 </div>
                 <div class="kl-icon-messenger kl-icon-horizontal">
-                    <img src="../assets/viber.svg"
+                    <img src="https://manhncse02926.github.io/koala/assets/viber.svg"
                     alt="Snappchat" width="40" height="40">
                 </div>
                     </div>
@@ -158,7 +158,7 @@ function KLHistory(t) {
                                 </div>
                                 <form class="kl-element-container">
                                     <div  class="kl-field kl-img-container">
-                                        <img src="../assets/qr_code.png" alt="QRCODE" class="kl-telegram-qr">
+                                        <img src="https://manhncse02926.github.io/koala/assets/qr_code.png" alt="QRCODE" class="kl-telegram-qr">
                                     </div>
                                     <div class="kl-title">
                                         Subscribe
@@ -171,27 +171,27 @@ function KLHistory(t) {
                                     </div>
                                         <div class="kl-header-icon-horizontal">
                                             <div class="kl-icon-telegram kl-icon-horizontal">
-                                                <img src="../assets/telegram.svg"
+                                                <img src="https://manhncse02926.github.io/koala/assets/telegram.svg"
                                                 alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-snappchat kl-icon-horizontal">
-                                                <img src="../assets/line.svg"
+                                                <img src="https://manhncse02926.github.io/koala/assets/line.svg"
                                                 alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-messenger kl-icon-horizontal">
-                                                <img src="../assets/slack.svg"
+                                                <img src="https://manhncse02926.github.io/koala/assets/slack.svg"
                                                 alt="Snappchat" width="30" height="40">
                                             </div>
                                             <div class="kl-icon-telegram kl-icon-horizontal">
-                                                <img src="../assets/skype.svg"
+                                                <img src="https://manhncse02926.github.io/koala/assets/skype.svg"
                                                 alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-snappchat kl-icon-horizontal">
-                                                <img src="../assets/whatsapp.svg"
+                                                <img src="https://manhncse02926.github.io/koala/assets/whatsapp.svg"
                                                 alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-messenger kl-icon-horizontal">
-                                                <img src="../assets/viber.svg"
+                                                <img src="https://manhncse02926.github.io/koala/assets/viber.svg"
                                                 alt="Snappchat" width="40" height="40">
                                             </div>
                                         </div>
@@ -204,7 +204,7 @@ function KLHistory(t) {
                                 </form>
                                 <div class="kl-link-wrapper">
                                     <div class="kl-brandname__left">
-                                        <img src="../assets/logo.svg"
+                                        <img src="https://manhncse02926.github.io/koala/assets/logo.svg"
                                                         alt="Messenger" class="kl-brand-logo">
                                     </div>
                                     <div class="kl-brandname__right">
@@ -250,34 +250,34 @@ function KLHistory(t) {
                                         </div>
                                     </div>
                                     <div  class="kl-field kl-img-container">
-                                        <img src="../assets/qr_code.png" alt="QRCODE" class="kl-telegram-qr">
+                                        <img src="https://manhncse02926.github.io/koala/assets/qr_code.png" alt="QRCODE" class="kl-telegram-qr">
                                     </div>
                                     <div class="kl-list-container">
                                     <div class="kl-left-arrow kl-arrow-deactive">
                                     </div>
                                         <div class="kl-header-icon-horizontal">
                                             <div class="kl-icon-telegram kl-icon-horizontal">
-                                                <img src="../assets/telegram.svg"
+                                                <img src="https://manhncse02926.github.io/koala/assets/telegram.svg"
                                                 alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-snappchat kl-icon-horizontal">
-                                                <img src="../assets/line.svg"
+                                                <img src="https://manhncse02926.github.io/koala/assets/line.svg"
                                                 alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-messenger kl-icon-horizontal">
-                                                <img src="../assets/slack.svg"
+                                                <img src="https://manhncse02926.github.io/koala/assets/slack.svg"
                                                 alt="Snappchat" width="30" height="40">
                                             </div>
                                             <div class="kl-icon-telegram kl-icon-horizontal">
-                                                <img src="../assets/viber.svg"
+                                                <img src="https://manhncse02926.github.io/koala/assets/viber.svg"
                                                 alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-snappchat kl-icon-horizontal">
-                                                <img src="../assets/whatsapp.svg"
+                                                <img src="https://manhncse02926.github.io/koala/assets/whatsapp.svg"
                                                     alt="Snappchat" width="40" height="40">
                                             </div>
                                             <div class="kl-icon-messenger kl-icon-horizontal">
-                                                <img src="../assets/skype.svg"
+                                                <img src="https://manhncse02926.github.io/koala/assets/skype.svg"
                                                 alt="Snappchat" width="40" height="40">
                                             </div>
                                         </div>
@@ -289,7 +289,7 @@ function KLHistory(t) {
                                     </div>
                                 </form>
                                 <div class="kl-link-wrapper">
-                                    <img src="../assets/logo.svg"
+                                    <img src="https://manhncse02926.github.io/koala/assets/logo.svg"
                                                     alt="Messenger" width="87" height="16">
                                     <div class="kl-power-by">
                                         PROVIDE BY BOBACHAT
