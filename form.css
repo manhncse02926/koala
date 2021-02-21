@@ -17,6 +17,10 @@
     background-position: center;
     background-size: auto;
 }
+.kl-form.boba-dark-mode {
+    background: #243447;
+    border-color: #243447;
+}
 .kl-full-cover {
     display: flex;
     background: #ffffff;
@@ -34,6 +38,10 @@
     border-width: 1px;
     font-family: 'Roboto', sans-serif;
 }
+.kl-full-cover.boba-dark-mode{
+    background: #243447;
+    border-color: #243447;
+}
 .kl-form-outer{
     background-color: #FFFFFF;
     box-shadow: 0px 1.2px 3.6px rgba(0, 0, 0, 0.1), 0px 6.4px 14.4px rgba(0, 0, 0, 0.13);
@@ -45,7 +53,10 @@
     line-height: 0px; 
     display: block;
 }
-
+.kl-form-outer.boba-dark-mode{
+    background: #243447;
+    border-color: #243447;
+}
 .kl-header-icon-horizontal {
     height: 100%;
     display: flex;
@@ -112,6 +123,9 @@
     font-size: 14px;
     line-height: 140%;    
     color: #605E5C;
+  }
+  .kl-sub-text.boba-dark-mode {
+    color: #EDEBE9;
   }
   .kl-full-sub-text{
       margin-top: 25px;
@@ -359,6 +373,9 @@
         font-size: 20px;
         line-height: 135%;
         color: #201F1E;
+}
+.kl-title.boba-dark-mode{
+    color: #fff;
 }
 .kl-full-fields-wrapper .kl-telegram-qr{
     margin-left: auto;
@@ -1077,6 +1094,9 @@
     font-variant: small-caps;
     color: #605E5C;
 }
+.kl-power-by-hr.boba-dark-mode{
+    color: #EDEBE9;
+}
 .kl-link-wrapper {
     margin-top: 16px;
     display: flex;
@@ -1100,6 +1120,9 @@
     letter-spacing: 0.04em;
     font-variant: small-caps;
     color: #605E5C;
+}
+.kl-power-by.boba-dark-mode{
+    color: #EDEBE9;
 }
 .kl-full-power-by{
     position: relative;
